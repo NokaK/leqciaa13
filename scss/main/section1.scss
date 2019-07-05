@@ -1,0 +1,64 @@
+@import  './modules/variable.scss';
+@import  './modules/private.scss';
+@import  './modules/mixins.scss';
+@import  './modules/functions.scss';
+
+
+body{
+	@include size (1366px);
+		@media screen and (max-width:1024px){
+			@include size (1024px);
+		}
+		@media screen and (max-width:768px){
+			 @include size (480px);
+		}
+	
+
+		@for $i from 1 through 6 {
+		li:nth-child(#{$i}) {
+			color: nth($rainbow, $i);
+		}
+	}
+
+	.section-bar{
+		background-color: $red;
+		@extend %paddingy;
+	/*	p{
+			@extend %container;
+		}*/
+	}
+	.section {
+	/*	@extend %container;*/
+		@extend %flex;
+		@include flex (space-between,center);
+		@extend %padding;
+		@media screen and (max-width:1024px){
+			background-color: black;
+		}
+		@media screen and (max-width:768px){
+			background-color: green;
+		}
+		.box{
+		 width: fun(600px, 200px);
+		
+			.border{
+				@include border (4px, solid, $red);
+				@extend %padding;
+				img{
+					height: $size01;
+				}
+			}
+		&:nth-child(2){
+				img{
+					height: $size02;
+				}
+			}
+			&:hover{
+			background-color: $aqua;
+			}
+		}
+
+	}
+}
+
+

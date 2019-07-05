@@ -1,0 +1,23 @@
+
+@import  './variable.scss';
+
+@mixin flex($horizontal,$vertical){
+	justify-content: $horizontal;
+	align-items: $vertical;
+}
+
+@mixin border($width,$type,$color) {
+	border-width: $width;
+	border-style: $type;
+	border-color: $color;
+}
+
+@mixin  size($width){
+	@if $width == 1366px {
+		max-width:1170px;
+	}@else if $width == 1024px{
+		max-width:770px;
+	}@else {
+		max-width:480px;
+	}
+}
